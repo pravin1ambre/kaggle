@@ -8,10 +8,12 @@ import re
 import requests
 import io
 import urllib3
+from models import *
 http = urllib3.PoolManager()
 app = Flask(__name__)
 api = Api(app)
 CORS(app)
+
 
 class Competitions(Resource):
     def get(self):
@@ -55,7 +57,6 @@ class Competitions(Resource):
 #         return data
 
 api.add_resource(Competitions, '/competitions')
-# api.add_resource(Leaderboard, '/leaderboard')
 
 if __name__ == '__main__':
     app.run(port="5001", debug=True)
